@@ -11,5 +11,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -Wextra -Wpedantic")
 # Add executable
 add_executable(code main.cpp)
 
-# Set output directory
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+# Copy the executable to the source directory after building
+add_custom_command(TARGET code POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:code> ${CMAKE_SOURCE_DIR}/code
+    COMMENT "Copying executable to source directory"
+)

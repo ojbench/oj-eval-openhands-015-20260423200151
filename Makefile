@@ -1,5 +1,5 @@
 
-CXX = g++
+CXX = g++-13
 CXXFLAGS = -std=c++17 -O2 -Wall -Wextra -Wpedantic
 TARGET = code
 SOURCES = main.cpp
